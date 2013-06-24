@@ -96,6 +96,7 @@ namespace MvcApplication1.App_Start
             this.EnableCdn = appSettings.Get("EnableCdn", false);
             this.CdnPrefix = appSettings.Get("CdnPrefix", "");
             this.AdminUserNames = appSettings.Get("AdminUserNames", new List<string>());
+            
         }
 
         public Env Env { get; set; }
@@ -128,6 +129,7 @@ namespace MvcApplication1.App_Start
             AppConfig = new AppConfig(appSettings);
             container.Register(AppConfig);
             //Store = new EmbeddableDocumentStore { RunInMemory = true};
+            
             Store = new DocumentStore { ConnectionStringName = "RavenDB" };
 	        Store.Initialize();
 
