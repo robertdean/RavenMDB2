@@ -128,7 +128,7 @@ namespace MvcApplication1.App_Start
             AppConfig = new AppConfig(appSettings);
             container.Register(AppConfig);
             //Store = new EmbeddableDocumentStore { RunInMemory = true};
-            Store = new DocumentStore { Url = "http://localhost:8080/", DefaultDatabase = "svcStack"};
+            Store = new DocumentStore { ConnectionStringName = "RavenDB" };
 	        Store.Initialize();
 
 			//Set JSON web services to return idiomatic JSON camelCase properties
