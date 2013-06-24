@@ -1,0 +1,14 @@
+﻿            <div class="row">
+                <div class="span12">
+                    <h4>Test Controller</h4>                    
+                    <ul>
+                        <li ng-repeat="item in todos">
+                            <a href="#/test/{{item.id}}">
+                                Test {{item.id}} {{item.content}} 
+                            </a>
+                            <button ng-click="deleteTodo(item)" type="button" class="btn btn-mini btn-danger"><i class="icon icon-remove"></i> Delete </button>
+                            
+                        </li>
+                    </ul>
+                </div>
+            </div>

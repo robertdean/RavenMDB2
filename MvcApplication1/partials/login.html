@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <div class="span6">
+        <form class="form-horizontal" ng-submit="signin()">
+            <legend>Sign in</legend>
+            <div class="control-group">
+                <label class="control-label" for="inputUserName">User Name</label>
+                <div class="controls">
+                    <input type="text" id="inputUserName" placeholder="User Name ..." ng-model="credentials.userName">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                    <input type="password" id="inputPassword" placeholder="Password" ng-model="credentials.password">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox" for="autologin">
+                        <input id="autologin" type="checkbox" ng-model="credentials.autoLogin"/>
+                        Remember me
+                    </label>
+                    <button type="submit" class="btn">Sign in</button>
+                    <a href="#/"class="btn">Cancel</a>
+                    <button type="button" class="btn" ng-click="logout()">Logout</button>                   
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="span6">
+        <div class="well">
+            <form action="../api/auth/googleopenid" method="POST">
+                <button type="submit" class="btn btn-large btn-block btn-primary" ><i class="icon icon-google-plus-sign"></i> Google</button>
+            </form>
+            <form action="../api/auth/yahooopenid" method="POST">
+                <button type="submit" class="btn btn-large btn-block btn-primary" >Yahoo</button>
+            </form>
+
+        </div>
+    </div>
+</div>

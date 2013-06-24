@@ -1,0 +1,10 @@
+﻿            <div class="row">
+                <div class="span12">
+                                   
+                        <span ng-bind="todo.id" ></span>
+                    <span ng-bind="todo.content" ></span> 
+                    <i class="icon icon-check" ng-show="todo.done"></i> 
+                    <i class="icon icon-check-empty" ng-hide="todo.done"></i> 
+                    <a href="#/test/{{todo.id}}/edit" class="btn">Edit</a>                       
+                </div>
+            </div>
