@@ -131,7 +131,7 @@ namespace MvcApplication1.App_Start
             container.Register(AppConfig);
             
             //Store = new EmbeddableDocumentStore { RunInMemory = true};
-            
+            Debug.Print(AppConfig.RavenDBConnectionString);
             Store = new DocumentStore { ConnectionStringName = "RavenDB" };
 	        Store.Initialize();
 
