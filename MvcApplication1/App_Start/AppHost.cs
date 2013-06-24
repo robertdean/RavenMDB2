@@ -182,7 +182,7 @@ namespace MvcApplication1.App_Start
             container.RegisterAs<CustomRegistrationValidator, IValidator<Registration>>();
             container.Register<IUserAuthRepository>(c => new RavenUserAuthRepository(Store));
 
-		    CreateAdminIfNotPresent(container);
+		    //CreateAdminIfNotPresent(container);
 		}
 
 	    private void CreateAdminIfNotPresent(Container container)
