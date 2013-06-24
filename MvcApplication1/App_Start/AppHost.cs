@@ -187,8 +187,8 @@ namespace MvcApplication1.App_Start
 		    }
 		    catch (Exception ex)
 		    {
-		        
-                var test= ConfigurationManager.ConnectionStrings["RavendDB"].ToString()
+
+		        var test = ConfigurationManager.ConnectionStrings["RavendDB"].ToString();
 		        throw new Exception(test);
 		    }
 		    
