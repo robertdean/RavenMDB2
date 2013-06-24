@@ -96,9 +96,10 @@ namespace MvcApplication1.App_Start
             this.EnableCdn = appSettings.Get("EnableCdn", false);
             this.CdnPrefix = appSettings.Get("CdnPrefix", "");
             this.AdminUserNames = appSettings.Get("AdminUserNames", new List<string>());
-            
+            this.RavenDBConnectionString = appSettings.Get("RAVENHQ_CONNECTION_STRING", "");
         }
-
+        
+        public string RavenDBConnectionString {get; set;}
         public Env Env { get; set; }
         public bool EnableCdn { get; set; }
         public string CdnPrefix { get; set; }
@@ -130,7 +131,7 @@ namespace MvcApplication1.App_Start
             container.Register(AppConfig);
             //Store = new EmbeddableDocumentStore { RunInMemory = true};
             
-            Store = new DocumentStore { ConnectionStringName = "RavenDB" };
+            Store = new DocumentStore { Url = appSettings.RavenDBConnectionString.Replace("Url=","") };
 	        Store.Initialize();
 
 			//Set JSON web services to return idiomatic JSON camelCase properties
