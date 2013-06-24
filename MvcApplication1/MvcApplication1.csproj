@@ -177,14 +177,6 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Content Include="Copy of partials\404.html" />
-    <Content Include="Copy of partials\home.html" />
-    <Content Include="Copy of partials\login.html" />
-    <Content Include="Copy of partials\profile.html" />
-    <Content Include="Copy of partials\register.html" />
-    <Content Include="Copy of partials\test.html" />
-    <Content Include="Copy of partials\testDetails.html" />
-    <Content Include="Copy of partials\testEdit.html" />
     <Content Include="css\app.css" />
     <Content Include="default.htm" />
     <Content Include="default2.htm" />

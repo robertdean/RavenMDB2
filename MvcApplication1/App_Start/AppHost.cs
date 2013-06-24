@@ -96,10 +96,8 @@ namespace MvcApplication1.App_Start
             this.EnableCdn = appSettings.Get("EnableCdn", false);
             this.CdnPrefix = appSettings.Get("CdnPrefix", "");
             this.AdminUserNames = appSettings.Get("AdminUserNames", new List<string>());
-            this.RavenDBConnectionString = appSettings.Get("RAVENHQ_CONNECTION_STRING", "");
         }
         
-        public string RavenDBConnectionString {get;set;}
         public Env Env { get; set; }
         public bool EnableCdn { get; set; }
         public string CdnPrefix { get; set; }
@@ -182,20 +180,20 @@ namespace MvcApplication1.App_Start
             container.RegisterAs<CustomRegistrationValidator, IValidator<Registration>>();
             container.Register<IUserAuthRepository>(c => new RavenUserAuthRepository(Store));
 
-		    //CreateAdminIfNotPresent(container);
+		    CreateAdminIfNotPresent(container);
 		}
 
 	    private void CreateAdminIfNotPresent(Container container)
 	    {
             var auth = container.Resolve<IUserAuthRepository>();
-	        var user = auth.GetUserAuthByUserName("admin");
-	        if (user == null)
-	        {
-	            user =
-	                auth.CreateUserAuth(
-	                    new UserAuth {UserName = "admin", Email = "admin@test.com", PrimaryEmail = "admin@test.com"},
-	                    "test");
-	        }
+	        var user = auth.GetUserAuthByUserName("admin") ?? auth.CreateUserAuth(
+                new UserAuth
+                    {
+                        UserName = "admin", 
+                        Email = "admin@inq.com", 
+                        PrimaryEmail = "admin@inq.com"
+                    },
+	            "test");
 	    }
 
 	    /**/
