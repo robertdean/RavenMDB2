@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 using Funq;
 using Raven.Client;
@@ -175,12 +177,21 @@ namespace MvcApplication1.App_Start
 
 			//Default route: /register
 			Plugins.Add(new RegistrationFeature()); 
+		    try
+		    {
 
 			//Requires ConnectionString configured in Web.Config
             container.RegisterAs<CustomRegistrationValidator, IValidator<Registration>>();
             container.Register<IUserAuthRepository>(c => new RavenUserAuthRepository(Store));
-
-		    CreateAdminIfNotPresent(container);
+                CreateAdminIfNotPresent(container);
+		    }
+		    catch (Exception ex)
+		    {
+		        
+                var test= ConfigurationManager.ConnectionStrings["RavendDB"].ToString()
+		        throw new Exception(test);
+		    }
+		    
 		}
 
 	    private void CreateAdminIfNotPresent(Container container)
