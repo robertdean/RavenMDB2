@@ -2,8 +2,12 @@
 .controller('HomeCtrl', ['$scope', function ($scope) {
     //SearchService.find($routeParams.id);
 }])
-.controller('UserCtrl', ['$scope', '$window', 'authService', function ($scope, $window, authService) {
+.controller('ErrorCtrl',['$scope',function($scope) {
+    
+}])
+.controller('UserCtrl', ['$scope', '$window', '$timeout','authService', function ($scope, $window, $timeout, authService) {
     $scope.service = authService;
+    
 
     $scope.credentials = {
         username: '',
@@ -50,7 +54,11 @@
                 $scope.validationErrors = response.validationErrors;
             });
     };
-    
+
+    if ($window.location.hash == "#/logout") {
+        $timeout($scope.logout, 2000);
+    }
+
 }])
 .controller('TestCtrl', ['$scope', 'apiService', function ($scope, api) {
     $scope.service = api.service;

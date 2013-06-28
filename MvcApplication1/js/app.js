@@ -11,8 +11,9 @@ var app = angular.module('app',
         $routeProvider.when('/test', { templateUrl: 'partials/test.html', controller: 'TestCtrl' });
         $routeProvider.when('/test/:id', { templateUrl: 'partials/testdetails.html', controller: 'TestDetailsCtrl' });
         $routeProvider.when('/test/:id/edit', { templateUrl: 'partials/testedit.html', controller: 'TestDetailsCtrl' });
+        $routeProvider.when('/error', { templateUrl: 'partials/error.html', controller: 'ErrorCtrl' });
         $routeProvider.when('/404', { templateUrl: 'partials/404.html', controller: 'NotFoundCtrl' });
-        $routeProvider.otherwise({ redirectTo: '/404' });
+        $routeProvider.otherwise({ redirectTo: '/404'  });
     } ]);
     
     angular.module('angular-servicestack').
