@@ -10,6 +10,11 @@ namespace MvcApplication1.App_Start
     public class CustomUserSession : AuthUserSession
     {
         public string CustomId { get; set; }
+        
+        public override void OnCreated(ServiceStack.ServiceHost.IHttpRequest httpReq)
+        {
+            base.OnCreated(httpReq);
+        }
 
         public override void OnAuthenticated(
             IServiceBase authService,
